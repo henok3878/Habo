@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:habo/constants.dart';
+import 'package:habo/generated/l10n.dart';
 import 'package:habo/habits/habit.dart';
 import 'package:habo/models/habit_data.dart';
 import 'package:habo/notifications.dart';
@@ -50,7 +51,7 @@ class HabitsManager extends ChangeNotifier {
     _scaffoldKey.currentState!.hideCurrentSnackBar();
   }
 
-  void createBackup() async {
+  Future<bool> createBackup() async {
     try {
       final file = await Backup.writeBackup(allHabits);
       if (Platform.isAndroid || Platform.isIOS) {
@@ -71,11 +72,12 @@ class HabitsManager extends ChangeNotifier {
         }
       }
     } catch (e) {
-      showErrorMessage('ERROR: Creating backup failed.');
+      return false;
     }
+    return true;
   }
 
-  loadBackup() async {
+  Future<bool> loadBackup() async {
     try {
       final String? filePath;
       if (Platform.isAndroid || Platform.isIOS) {
@@ -95,7 +97,7 @@ class HabitsManager extends ChangeNotifier {
             .path;
       }
       if (filePath == null) {
-        return;
+        return true;
       }
       final json = await Backup.readBackup(filePath);
       List<Habit> habits = [];
@@ -108,8 +110,9 @@ class HabitsManager extends ChangeNotifier {
       resetNotifications(allHabits);
       notifyListeners();
     } catch (e) {
-      showErrorMessage('ERROR: Restoring backup failed.');
+      return false;
     }
+    return true;
   }
 
   resetNotifications(List<Habit> habits) {
@@ -260,10 +263,10 @@ class HabitsManager extends ChangeNotifier {
     _scaffoldKey.currentState!.showSnackBar(
       SnackBar(
         duration: const Duration(seconds: 3),
-        content: const Text('Habit deleted.'),
+        content: Text(S.current.habitDeleted),
         behavior: SnackBarBehavior.floating,
         action: SnackBarAction(
-          label: 'Undo',
+          label: S.current.undo,
           onPressed: () {
             undoDeleteHabit(deletedHabit!);
           },

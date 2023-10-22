@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:habo/habits/habits_manager.dart';
 import 'package:habo/navigation/app_router.dart';
@@ -13,6 +14,7 @@ import 'package:provider/provider.dart';
 import 'package:window_size/window_size.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:habo/generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,7 +43,6 @@ class _HaboState extends State<Habo> {
   @override
   void initState() {
     if (Platform.isLinux || Platform.isMacOS) {
-      // setWindowTitle('Habo!!!');
       setWindowMinSize(const Size(320, 320));
       setWindowMaxSize(Size.infinite);
     }
@@ -84,6 +85,13 @@ class _HaboState extends State<Habo> {
       child: Consumer<SettingsManager>(builder: (context, counter, _) {
         return MaterialApp(
           title: 'Habo',
+          localizationsDelegates: const [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: S.delegate.supportedLocales,
           scaffoldMessengerKey:
               Provider.of<HabitsManager>(context).getScaffoldKey,
           theme: Provider.of<SettingsManager>(context).getLight,
