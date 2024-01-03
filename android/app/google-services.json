@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "408544546321",
+    "project_id": "habo-fa79b",
+    "storage_bucket": "habo-fa79b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:408544546321:android:ee1ab85a69fb4fba0aebb0",
+        "android_client_info": {
+          "package_name": "com.pavlenko.Habo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxG_T4z_smfIqnzn-cn6AUvdmdJE67hDU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
