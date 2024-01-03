@@ -23,7 +23,7 @@ class HaboLocalRepository implements HaboRepoInterface {
     // Return an instance of HaboRepository
     HaboLocalRepository instance = HaboLocalRepository._create();
     await instance.initDatabase();
-    return instance; 
+    return instance;
   }
 
   @override
@@ -90,7 +90,7 @@ class HaboLocalRepository implements HaboRepoInterface {
       (hab) async {
         String id = hab["id"];
         SplayTreeMap<DateTime, List> eventsMap = SplayTreeMap<DateTime, List>();
-        await db.query("events", where: "id = $id").then(
+        await db.query("events", where: "id = ?", whereArgs: [id]).then(
           (events) {
             for (var event in events) {
               debugPrint(
@@ -151,7 +151,7 @@ class HaboLocalRepository implements HaboRepoInterface {
   Future<void> insertHabit(Habit habit) async {
     try {
       await db.insert("habits", habit.toMap(),
-      conflictAlgorithm: ConflictAlgorithm.replace);
+          conflictAlgorithm: ConflictAlgorithm.replace);
     } catch (_) {
       if (kDebugMode) {
         print(_);
