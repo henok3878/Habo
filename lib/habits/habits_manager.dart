@@ -117,14 +117,14 @@ class HabitsManager extends ChangeNotifier {
       if (element.habitData.notification) {
         var data = element.habitData;
         setHabitNotification(
-            data.id.hashCode!, data.notTime, 'Habo', data.title);
+            data.id.hashCode, data.notTime, 'Habo', data.title);
       }
     }
   }
 
   removeNotifications(List<Habit> habits) {
     for (var element in habits) {
-      disableHabitNotification(element.habitData.id.hashCode!);
+      disableHabitNotification(element.habitData.id.hashCode);
     }
   }
 
@@ -179,7 +179,7 @@ class HabitsManager extends ChangeNotifier {
       TimeOfDay notTime,
       String sanction,
       bool showSanction,
-      String accountant) {
+      String accountant) async {
     Habit newHabit = Habit(
       habitData: HabitData(
         position: allHabits.length,
@@ -198,18 +198,16 @@ class HabitsManager extends ChangeNotifier {
         accountant: accountant,
       ),
     );
-    _haboRepo.insertHabit(newHabit).then(
-      (value) {
-        allHabits.add(newHabit);
+    await _haboRepo.insertHabit(newHabit);
+    allHabits.add(newHabit);
 
-        if (notification) {
-          setHabitNotification(newHabit.habitData!.hashCode, notTime, 'Habo', title);
-        } else {
-          disableHabitNotification(newHabit.habitData.id!.hashCode);
-        }
-        notifyListeners();
-      },
-    );
+    if (notification) {
+      setHabitNotification(
+          newHabit.habitData.hashCode, notTime, 'Habo', title);
+    } else {
+      disableHabitNotification(newHabit.habitData.id!.hashCode);
+    }
+    notifyListeners();
     updateOrder();
   }
 
@@ -292,7 +290,7 @@ class HabitsManager extends ChangeNotifier {
 
   Future<void> deleteFromDB() async {
     if (toDelete.isNotEmpty) {
-      disableHabitNotification(toDelete.first.habitData.id.hashCode!);
+      disableHabitNotification(toDelete.first.habitData.id.hashCode);
       _haboRepo.deleteHabit(toDelete.first.habitData.id!);
       toDelete.removeFirst();
     }
