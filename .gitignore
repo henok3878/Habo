@@ -11,6 +11,10 @@
 .vscode/
 migrate_working_dir/
 
+# Sensitive configuration files
+google-services.json
+GoogleService-Info.plist
+
 # IntelliJ related
 *.iml
 *.ipr
