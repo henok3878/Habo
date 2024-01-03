@@ -9,12 +9,12 @@ class HaboRemoteRepository implements HaboRepoInterface {
   }
 
   @override
-  Future<void> deleteEvent(int id, DateTime dateTime) async {
+  Future<void> deleteEvent(String id, DateTime dateTime) async {
     debugPrint("Remote deleteEvent");
   }
 
   @override
-  Future<void> deleteHabit(int id) async {
+  Future<void> deleteHabit(String id) async {
     debugPrint("Remote deleteHabit");
   }
 
@@ -30,14 +30,13 @@ class HaboRemoteRepository implements HaboRepoInterface {
   }
 
   @override
-  Future<void> insertEvent(int id, DateTime date, List event) async {
+  Future<void> insertEvent(String id, DateTime date, List event) async {
     debugPrint("Remote Insert Event");
   }
 
   @override
-  Future<int> insertHabit(Habit habit) async {
+  Future<void> insertHabit(Habit habit) async {
     debugPrint("Remote Insert Habit");
-    return 1;
   }
 
   @override

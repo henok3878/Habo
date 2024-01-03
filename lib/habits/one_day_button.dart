@@ -22,7 +22,7 @@ class OneDayButton extends StatelessWidget {
       : date = transformDate(date),
         super(key: key);
 
-  final int id;
+  final String id;
   final DateTime date;
   final Color? color;
   final Widget? child;

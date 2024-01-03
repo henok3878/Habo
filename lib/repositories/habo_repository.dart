@@ -24,13 +24,13 @@ class HaboRepository implements HaboRepoInterface {
   }
 
   @override
-  Future<void> deleteEvent(int id, DateTime dateTime) async {
+  Future<void> deleteEvent(String id, DateTime dateTime) async {
     await _localRepo.deleteEvent(id, dateTime);
     await _remoteRepo.deleteEvent(id, dateTime);
   }
 
   @override
-  Future<void> deleteHabit(int id) async {
+  Future<void> deleteHabit(String id) async {
     await _localRepo.deleteHabit(id);
     await _remoteRepo.deleteHabit(id);
   }
@@ -53,18 +53,15 @@ class HaboRepository implements HaboRepoInterface {
   }
 
   @override
-  Future<void> insertEvent(int id, DateTime date, List event) async {
+  Future<void> insertEvent(String id, DateTime date, List event) async {
     await _localRepo.insertEvent(id, date, event);
     await _remoteRepo.insertEvent(id, date, event);
   }
 
   @override
-  Future<int> insertHabit(Habit habit) async {
-    int id = await _localRepo.insertHabit(habit);
-    habit.setId = id;
+  Future<void> insertHabit(Habit habit) async {
+    await _localRepo.insertHabit(habit);
     await _remoteRepo.insertHabit(habit);
-    debugPrint("new id: $id");
-    return id;
   }
 
   @override

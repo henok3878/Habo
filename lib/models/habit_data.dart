@@ -1,10 +1,11 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
 
 class HabitData {
   HabitData({
-    this.id,
+    String? id,
     required this.position,
     required this.title,
     required this.twoDayRule,
@@ -19,11 +20,11 @@ class HabitData {
     required this.sanction,
     required this.showSanction,
     required this.accountant,
-  });
+  }) : id = id ?? const Uuid().v4();
 
   SplayTreeMap<DateTime, List> events;
   int streak = 0;
-  int? id;
+  String? id;
   int position;
   String title;
   bool twoDayRule;

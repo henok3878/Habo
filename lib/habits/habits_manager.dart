@@ -116,14 +116,15 @@ class HabitsManager extends ChangeNotifier {
     for (var element in habits) {
       if (element.habitData.notification) {
         var data = element.habitData;
-        setHabitNotification(data.id!, data.notTime, 'Habo', data.title);
+        setHabitNotification(
+            data.id.hashCode!, data.notTime, 'Habo', data.title);
       }
     }
   }
 
   removeNotifications(List<Habit> habits) {
     for (var element in habits) {
-      disableHabitNotification(element.habitData.id!);
+      disableHabitNotification(element.habitData.id.hashCode!);
     }
   }
 
@@ -158,11 +159,11 @@ class HabitsManager extends ChangeNotifier {
     notifyListeners();
   }
 
-  addEvent(int id, DateTime dateTime, List event) {
+  addEvent(String id, DateTime dateTime, List event) {
     _haboRepo.insertEvent(id, dateTime, event);
   }
 
-  deleteEvent(int id, DateTime dateTime) {
+  deleteEvent(String id, DateTime dateTime) {
     _haboRepo.deleteEvent(id, dateTime);
   }
 
@@ -198,13 +199,13 @@ class HabitsManager extends ChangeNotifier {
       ),
     );
     _haboRepo.insertHabit(newHabit).then(
-      (id) {
-        newHabit.setId = id;
+      (value) {
         allHabits.add(newHabit);
+
         if (notification) {
-          setHabitNotification(id, notTime, 'Habo', title);
+          setHabitNotification(newHabit.habitData!.hashCode, notTime, 'Habo', title);
         } else {
-          disableHabitNotification(id);
+          disableHabitNotification(newHabit.habitData.id!.hashCode);
         }
         notifyListeners();
       },
@@ -230,19 +231,19 @@ class HabitsManager extends ChangeNotifier {
     _haboRepo.editHabit(hab);
     if (habitData.notification) {
       setHabitNotification(
-          habitData.id!, habitData.notTime, 'Habo', habitData.title);
+          habitData.id!.hashCode, habitData.notTime, 'Habo', habitData.title);
     } else {
-      disableHabitNotification(habitData.id!);
+      disableHabitNotification(habitData.id!.hashCode);
     }
     notifyListeners();
   }
 
-  String getNameOfHabit(int id) {
+  String getNameOfHabit(String id) {
     Habit? hab = findHabitById(id);
     return (hab != null) ? hab.habitData.title : "";
   }
 
-  Habit? findHabitById(int id) {
+  Habit? findHabitById(String id) {
     Habit? result;
     for (var hab in allHabits) {
       if (hab.habitData.id == id) {
@@ -252,7 +253,7 @@ class HabitsManager extends ChangeNotifier {
     return result;
   }
 
-  deleteHabit(int id) {
+  deleteHabit(String id) {
     deletedHabit = findHabitById(id);
     allHabits.remove(deletedHabit);
     toDelete.addLast(deletedHabit!);
@@ -291,7 +292,7 @@ class HabitsManager extends ChangeNotifier {
 
   Future<void> deleteFromDB() async {
     if (toDelete.isNotEmpty) {
-      disableHabitNotification(toDelete.first.habitData.id!);
+      disableHabitNotification(toDelete.first.habitData.id.hashCode!);
       _haboRepo.deleteHabit(toDelete.first.habitData.id!);
       toDelete.removeFirst();
     }

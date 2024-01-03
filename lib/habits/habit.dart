@@ -18,10 +18,6 @@ class Habit extends StatefulWidget {
 
   final HabitData habitData;
 
-  set setId(int input) {
-    habitData.id = input;
-  }
-
   Map<String, dynamic> toMap() {
     return {
       "id": habitData.id,

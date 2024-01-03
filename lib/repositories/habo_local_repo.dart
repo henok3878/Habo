@@ -39,7 +39,7 @@ class HaboLocalRepository implements HaboRepoInterface {
   }
 
   @override
-  Future<void> deleteEvent(int id, DateTime dateTime) async {
+  Future<void> deleteEvent(String id, DateTime dateTime) async {
     try {
       await db.delete("events",
           where: "id = ? AND dateTime = ?",
@@ -52,7 +52,7 @@ class HaboLocalRepository implements HaboRepoInterface {
   }
 
   @override
-  Future<void> deleteHabit(int id) async {
+  Future<void> deleteHabit(String id) async {
     try {
       await db.delete("habits", where: "id = ?", whereArgs: [id]);
       await db.delete("events", where: "id = ?", whereArgs: [id]);
@@ -88,7 +88,7 @@ class HaboLocalRepository implements HaboRepoInterface {
     await Future.forEach(
       habits,
       (hab) async {
-        int id = hab["id"];
+        String id = hab["id"];
         SplayTreeMap<DateTime, List> eventsMap = SplayTreeMap<DateTime, List>();
         await db.query("events", where: "id = $id").then(
           (events) {
@@ -129,7 +129,7 @@ class HaboLocalRepository implements HaboRepoInterface {
   }
 
   @override
-  Future<void> insertEvent(int id, DateTime date, List event) async {
+  Future<void> insertEvent(String id, DateTime date, List event) async {
     try {
       db.insert(
           "events",
@@ -148,17 +148,15 @@ class HaboLocalRepository implements HaboRepoInterface {
   }
 
   @override
-  Future<int> insertHabit(Habit habit) async {
+  Future<void> insertHabit(Habit habit) async {
     try {
-      var id = await db.insert("habits", habit.toMap(),
-          conflictAlgorithm: ConflictAlgorithm.replace);
-      return id;
+      await db.insert("habits", habit.toMap(),
+      conflictAlgorithm: ConflictAlgorithm.replace);
     } catch (_) {
       if (kDebugMode) {
         print(_);
       }
     }
-    return 0;
   }
 
   @override
@@ -212,7 +210,7 @@ class HaboLocalRepository implements HaboRepoInterface {
   void _createTableEventsV3(Batch batch) {
     batch.execute('DROP TABLE IF EXISTS events');
     batch.execute('''CREATE TABLE events (
-    id INTEGER,
+    id TEXT,
     dateTime TEXT,
     dayType INTEGER,
     comment TEXT,
@@ -224,7 +222,7 @@ class HaboLocalRepository implements HaboRepoInterface {
   void _createTableHabitsV3(Batch batch) {
     batch.execute('DROP TABLE IF EXISTS habits');
     batch.execute('''CREATE TABLE habits (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id TEXT PRIMARY KEY,
     position INTEGER,
     title TEXT,
     twoDayRule INTEGER,
