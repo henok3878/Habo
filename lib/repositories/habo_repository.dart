@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:habo/habits/habit.dart';
 import 'package:habo/repositories/habo_repo_interface.dart';
 
@@ -47,6 +46,7 @@ class HaboRepository implements HaboRepoInterface {
       allHabits = await _localRepo.getAllHabits();
       if (allHabits.isEmpty) {
         allHabits = await _remoteRepo.getAllHabits();
+        await _localRepo.useBackup(allHabits);
       }
     }
     return allHabits;
@@ -62,12 +62,21 @@ class HaboRepository implements HaboRepoInterface {
   Future<void> insertHabit(Habit habit) async {
     await _localRepo.insertHabit(habit);
     await _remoteRepo.insertHabit(habit);
+    // // Initiate the remote repository update in the background
+    // _remoteRepo.insertHabit(habit).catchError((error) {
+    //   debugPrint("Error updating remote repository: $error");
+    // });
   }
 
   @override
   Future<void> updateOrder(List<Habit> habits) async {
     await _localRepo.updateOrder(habits);
     await _remoteRepo.updateOrder(habits);
+
+    // // Initiate the remote repository update in the background
+    // _remoteRepo.updateOrder(habits).catchError((error) {
+    //   debugPrint("Error updating order remote repository: $error");
+    // });
   }
 
   @override
