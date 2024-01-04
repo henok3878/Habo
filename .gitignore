@@ -11,6 +11,15 @@
 .vscode/
 migrate_working_dir/
 
+# Sensitive configuration files
+google-services.json
+GoogleService-Info.plist
+ios/Runner/GoogleService-Info.plis
+android/app/google-services.json
+/lib/firebase_options.dart
+ios/firebase_app_id_file.json
+
+
 # IntelliJ related
 *.iml
 *.ipr
