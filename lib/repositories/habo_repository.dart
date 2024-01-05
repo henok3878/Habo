@@ -21,7 +21,7 @@ class HaboRepository implements HaboRepoInterface {
   Future<void> clearDatabase() async {
     await _localRepo.clearDatabase();
     // Initiate the remote repository update in the background
-    _localRepo.clearDatabase().catchError((error) {
+    _remoteRepo.clearDatabase().catchError((error) {
       debugPrint("Error clearing remote db: $error");
     });
   }
@@ -55,13 +55,21 @@ class HaboRepository implements HaboRepoInterface {
 
   @override
   Future<List<Habit>> getAllHabits() async {
-    if (allHabits.isEmpty) {
+    try {
+      // Try to fetch habits from Firestore
+      allHabits = await _remoteRepo.getAllHabits();
+
+      // Update the local repository in the background
+      _localRepo.useBackup(allHabits).catchError((e) {
+        // Handle or log error if local update fails
+        debugPrint("Error updating local repository: $e");
+      });
+    } catch (e) {
+      // If fetching from Firestore fails, fall back to the local repository
+      debugPrint("Error fetching from Firestore: $e");
       allHabits = await _localRepo.getAllHabits();
-      if (allHabits.isEmpty) {
-        allHabits = await _remoteRepo.getAllHabits();
-        await _localRepo.useBackup(allHabits);
-      }
     }
+
     return allHabits;
   }
 
