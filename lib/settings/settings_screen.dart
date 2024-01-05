@@ -1,6 +1,7 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:habo/auth/auth_manager.dart';
 import 'package:habo/constants.dart';
 import 'package:habo/extensions.dart';
 import 'package:habo/generated/l10n.dart';
@@ -336,6 +337,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       onTap: () {
                         Provider.of<AppStateManager>(context, listen: false)
                             .goOnboarding(true);
+                      },
+                    ),
+                    ListTile(
+                      title: Text(S.of(context).signOut),
+                      onTap: () {
+                        Provider.of<AuthManager>(context, listen: false)
+                            .signOut();
+                        Provider.of<AppStateManager>(context, listen: false)
+                            .goSettings(false);
                       },
                     ),
                     ListTile(
