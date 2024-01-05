@@ -41,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "allHabitsWillBeReplaced": MessageLookupByLibrary.simpleMessage(
             "All habits will be replaced with habits from backup."),
         "allow": MessageLookupByLibrary.simpleMessage("Allow"),
+        "alreadyHaveAnAccountSignIn":
+            MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "appNotifications":
             MessageLookupByLibrary.simpleMessage("App notifications"),
         "appNotificationsChannel": MessageLookupByLibrary.simpleMessage(
@@ -53,11 +55,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "check": MessageLookupByLibrary.simpleMessage("Check"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
+        "confirmPassword":
+            MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "congratulationsReward": MessageLookupByLibrary.simpleMessage(
             "Congratulations! Your reward:"),
         "copyright": MessageLookupByLibrary.simpleMessage("©2023 Habo"),
         "create": MessageLookupByLibrary.simpleMessage("Create"),
         "createHabit": MessageLookupByLibrary.simpleMessage("Create Habit"),
+        "createYourAccount":
+            MessageLookupByLibrary.simpleMessage("Create your account"),
         "createYourFirstHabit":
             MessageLookupByLibrary.simpleMessage("Create your first habit."),
         "cue": MessageLookupByLibrary.simpleMessage("Cue"),
@@ -76,10 +82,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "do50PushUps": MessageLookupByLibrary.simpleMessage("Do 50 push ups"),
         "doNotForgetToCheckYourHabits": MessageLookupByLibrary.simpleMessage(
             "Do not forget to check your habits."),
+        "doNotHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "donateToCharity":
             MessageLookupByLibrary.simpleMessage("Donate 10\$ to charity"),
         "done": MessageLookupByLibrary.simpleMessage("Done"),
         "editHabit": MessageLookupByLibrary.simpleMessage("Edit Habit"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emptyList": MessageLookupByLibrary.simpleMessage("Empty list"),
         "exercise": MessageLookupByLibrary.simpleMessage("Exercise"),
         "fail": MessageLookupByLibrary.simpleMessage("Fail"),
@@ -87,6 +96,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("15 min. of video games"),
         "firstDayOfWeek":
             MessageLookupByLibrary.simpleMessage("First day of the week"),
+        "forgotPassword":
+            MessageLookupByLibrary.simpleMessage("Forgot Password?"),
         "habit": MessageLookupByLibrary.simpleMessage("Habit"),
         "habitContract": MessageLookupByLibrary.simpleMessage("Habit contract"),
         "habitContractDescription": MessageLookupByLibrary.simpleMessage(
@@ -107,9 +118,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "Habo needs permission to send notifications to work properly."),
         "ifYouWantToSupport": MessageLookupByLibrary.simpleMessage(
             "If you want to support Habo you can:"),
+        "invalidEmailAddress":
+            MessageLookupByLibrary.simpleMessage("Invalid Email Address"),
+        "invalidName": MessageLookupByLibrary.simpleMessage("Invalid Name"),
+        "invalidPassword":
+            MessageLookupByLibrary.simpleMessage("Invalid Password"),
         "logYourDays": MessageLookupByLibrary.simpleMessage("Log your days"),
         "modify": MessageLookupByLibrary.simpleMessage("Modify"),
         "month": MessageLookupByLibrary.simpleMessage("Month"),
+        "name": MessageLookupByLibrary.simpleMessage("Name"),
         "noDataAboutHabits": MessageLookupByLibrary.simpleMessage(
             "There is no data about habits."),
         "notSoSuccessful":
@@ -123,7 +140,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "ohNoSanction":
             MessageLookupByLibrary.simpleMessage("Oh no! Your sanction:"),
         "onboarding": MessageLookupByLibrary.simpleMessage("Onboarding"),
+        "orSignInWith": MessageLookupByLibrary.simpleMessage("or Sign in with"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "passwordNotMatched":
+            MessageLookupByLibrary.simpleMessage("Passwords do not match"),
+        "pleaseEnterEmailAddress": MessageLookupByLibrary.simpleMessage(
+            "Please, enter your email address"),
+        "pleaseEnterName":
+            MessageLookupByLibrary.simpleMessage("Please, enter your name"),
+        "pleaseEnterPassword":
+            MessageLookupByLibrary.simpleMessage("Please, enter your password"),
+        "pleaseReEnterPassword": MessageLookupByLibrary.simpleMessage(
+            "Please, re-enter your password"),
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+        "register": MessageLookupByLibrary.simpleMessage("Register"),
+        "registrationComplete":
+            MessageLookupByLibrary.simpleMessage("Registration Complete!"),
         "remainderOfReward": MessageLookupByLibrary.simpleMessage(
             "The reminder of the reward after a successful routine."),
         "remainderOfSanction": MessageLookupByLibrary.simpleMessage(
@@ -148,6 +180,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Show month name"),
         "showReward": MessageLookupByLibrary.simpleMessage("Show reward"),
         "showSanction": MessageLookupByLibrary.simpleMessage("Show sanction"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+        "signInError": MessageLookupByLibrary.simpleMessage(
+            "Unable to login. Check your details and network, then retry."),
+        "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
+        "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "signUpError": MessageLookupByLibrary.simpleMessage(
+            "Registration failed. Verify your information and network, then retry."),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "skipDoesNotAffectStreaks": MessageLookupByLibrary.simpleMessage(
             "Skip (does not affect streaks)"),

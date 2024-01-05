@@ -110,5 +110,30 @@
     "notSoSuccessful": "Not so successful",
     "skipDoesNotAffectStreaks": "Skip (does not affect streaks)",
     "observeYourProgress": "Observe your progress",
-    "trackYourProgress": "You can track your progress through the calendar view in every habit or on the statistics page."
-  }
+    "trackYourProgress": "You can track your progress through the calendar view in every habit or on the statistics page.",
+    "register": "Register",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "createYourAccount": "Create your account",
+    "doNotHaveAnAccount": "Don't have an account?",
+    "alreadyHaveAnAccountSignIn": "Already have an account?",
+    "forgotPassword": "Forgot Password?",
+    "orSignInWith": "or Sign in with",
+    "registrationComplete": "Registration Complete!",
+    "name": "Name",
+    "pleaseEnterName": "Please, enter your name",
+    "invalidName": "Invalid Name",
+    "email": "Email",
+    "pleaseEnterEmailAddress": "Please, enter your email address",
+    "invalidEmailAddress": "Invalid Email Address",
+    "password": "Password",
+    "pleaseEnterPassword": "Please, enter your password",
+    "invalidPassword": "Invalid Password",
+    "confirmPassword": "Confirm Password",
+    "pleaseReEnterPassword": "Please, re-enter your password",
+    "passwordNotMatched": "Passwords do not match", 
+    "signOut": "Sign Out",
+    "signInError": "Unable to login. Check your details and network, then retry.",
+    "signUpError": "Registration failed. Verify your information and network, then retry."
+
+}

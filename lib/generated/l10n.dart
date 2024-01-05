@@ -1096,6 +1096,246 @@ class S {
       args: [],
     );
   }
+
+  /// `Register`
+  String get register {
+    return Intl.message(
+      'Register',
+      name: 'register',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In`
+  String get signIn {
+    return Intl.message(
+      'Sign In',
+      name: 'signIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up`
+  String get signUp {
+    return Intl.message(
+      'Sign Up',
+      name: 'signUp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create your account`
+  String get createYourAccount {
+    return Intl.message(
+      'Create your account',
+      name: 'createYourAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account?`
+  String get doNotHaveAnAccount {
+    return Intl.message(
+      'Don\'t have an account?',
+      name: 'doNotHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account?`
+  String get alreadyHaveAnAccountSignIn {
+    return Intl.message(
+      'Already have an account?',
+      name: 'alreadyHaveAnAccountSignIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password?`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot Password?',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `or Sign in with`
+  String get orSignInWith {
+    return Intl.message(
+      'or Sign in with',
+      name: 'orSignInWith',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Registration Complete!`
+  String get registrationComplete {
+    return Intl.message(
+      'Registration Complete!',
+      name: 'registrationComplete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please, enter your name`
+  String get pleaseEnterName {
+    return Intl.message(
+      'Please, enter your name',
+      name: 'pleaseEnterName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid Name`
+  String get invalidName {
+    return Intl.message(
+      'Invalid Name',
+      name: 'invalidName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please, enter your email address`
+  String get pleaseEnterEmailAddress {
+    return Intl.message(
+      'Please, enter your email address',
+      name: 'pleaseEnterEmailAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid Email Address`
+  String get invalidEmailAddress {
+    return Intl.message(
+      'Invalid Email Address',
+      name: 'invalidEmailAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please, enter your password`
+  String get pleaseEnterPassword {
+    return Intl.message(
+      'Please, enter your password',
+      name: 'pleaseEnterPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid Password`
+  String get invalidPassword {
+    return Intl.message(
+      'Invalid Password',
+      name: 'invalidPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Password`
+  String get confirmPassword {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please, re-enter your password`
+  String get pleaseReEnterPassword {
+    return Intl.message(
+      'Please, re-enter your password',
+      name: 'pleaseReEnterPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords do not match`
+  String get passwordNotMatched {
+    return Intl.message(
+      'Passwords do not match',
+      name: 'passwordNotMatched',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Out`
+  String get signOut {
+    return Intl.message(
+      'Sign Out',
+      name: 'signOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unable to login. Check your details and network, then retry.`
+  String get signInError {
+    return Intl.message(
+      'Unable to login. Check your details and network, then retry.',
+      name: 'signInError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Registration failed. Verify your information and network, then retry.`
+  String get signUpError {
+    return Intl.message(
+      'Registration failed. Verify your information and network, then retry.',
+      name: 'signUpError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
