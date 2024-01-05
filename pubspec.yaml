@@ -41,6 +41,7 @@ dependencies:
       path: plugins/window_size
   firebase_core: ^2.24.2
   cloud_firestore: ^4.13.6
+  firebase_auth: ^4.16.0
   flutter_localizations:
     sdk: flutter
   intl: any
