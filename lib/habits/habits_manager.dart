@@ -205,8 +205,7 @@ class HabitsManager extends ChangeNotifier {
     allHabits.add(newHabit);
 
     if (notification) {
-      setHabitNotification(
-          newHabit.habitData.hashCode, notTime, 'Habo', title);
+      setHabitNotification(newHabit.habitData.hashCode, notTime, 'Habo', title);
     } else {
       disableHabitNotification(newHabit.habitData.id!.hashCode);
     }
