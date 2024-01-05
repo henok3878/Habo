@@ -93,8 +93,6 @@ class HaboLocalRepository implements HaboRepoInterface {
         await db.query("events", where: "id = ?", whereArgs: [id]).then(
           (events) {
             for (var event in events) {
-              debugPrint(
-                  "Habit name: ${hab['title']}, habit_id: ${hab['id']}, events_id: ${event['id']}, Date: ${DateTime.parse(event["dateTime"] as String)}");
               eventsMap[DateTime.parse(event["dateTime"] as String)] = [
                 DayType.values[event["dayType"] as int],
                 event["comment"]
