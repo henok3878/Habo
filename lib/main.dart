@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:habo/auth/auth_manager.dart';
 import 'package:habo/habits/habits_manager.dart';
 import 'package:habo/navigation/app_router.dart';
 import 'package:habo/navigation/app_state_manager.dart';
@@ -38,6 +39,7 @@ class _HaboState extends State<Habo> {
   final _appStateManager = AppStateManager();
   final _settingsManager = SettingsManager();
   final _habitManager = HabitsManager();
+  final _authManager = AuthManager();
   late AppRouter _appRouter;
 
   @override
@@ -46,6 +48,7 @@ class _HaboState extends State<Habo> {
       setWindowMinSize(const Size(320, 320));
       setWindowMaxSize(Size.infinite);
     }
+    _authManager.initialize();
     _settingsManager.initialize();
     _habitManager.initialize();
     if (platformSupportsNotifications()) {
@@ -53,10 +56,10 @@ class _HaboState extends State<Habo> {
     }
     GoogleFonts.config.allowRuntimeFetching = false;
     _appRouter = AppRouter(
-      appStateManager: _appStateManager,
-      settingsManager: _settingsManager,
-      habitsManager: _habitManager,
-    );
+        appStateManager: _appStateManager,
+        settingsManager: _settingsManager,
+        habitsManager: _habitManager,
+        authManager: _authManager);
     super.initState();
   }
 
@@ -81,6 +84,7 @@ class _HaboState extends State<Habo> {
         ChangeNotifierProvider(
           create: (context) => _habitManager,
         ),
+        ChangeNotifierProvider(create: (context) => _authManager)
       ],
       child: Consumer<SettingsManager>(builder: (context, counter, _) {
         return MaterialApp(
